@@ -15,6 +15,8 @@
   <link href="css/mdb.min.css" rel="stylesheet">
   <!-- Your custom styles (optional) -->
   <link href="css/style.min.css" rel="stylesheet">
+  <!--jquery-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <style type="text/css">
     html,
     body,
@@ -79,20 +81,20 @@
 
         <!-- Right -->
         <ul class="navbar-nav nav-flex-icons">
-          <li class="nav-item">
-            <a class="nav-link waves-effect">
-              <span class="badge red z-depth-1 mr-1"> 1 </span>
+          <li class="nav-item cart">
+            <a class="nav-link waves-effect" href="#cartDetails">
+              <span class="badge red z-depth-1 mr-1 cart-count"> 0 </span>
               <i class="fas fa-shopping-cart"></i>
               <span class="clearfix d-none d-sm-inline-block"> Cart </span>
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link waves-effect" target="_blank">
+            <a href="#" class="nav-link waves-effect">
               <i class="fab fa-facebook-f"></i>
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link waves-effect" target="_blank">
+            <a href="#" class="nav-link waves-effect">
               <i class="fab fa-twitter"></i>
             </a>
           </li>
@@ -232,7 +234,7 @@
               <!--Card image-->
 
               <!--Card content-->
-              <div class="card-body text-center">
+              <div class="card-body text-center" id="product_detail">
                 <!--Category & Title-->
                 <a href="" class="grey-text">
                   <h5>Shirt</h5>
@@ -248,6 +250,7 @@
                 <h4 class="font-weight-bold blue-text">
                   <strong>120$</strong>
                 </h4>
+                <button class="btn btn-secondary add-cart"> Add to Cart</button>
 
               </div>
               <!--Card content-->
@@ -289,7 +292,7 @@
                 <h4 class="font-weight-bold blue-text">
                   <strong>139$</strong>
                 </h4>
-
+                <button class="btn btn-secondary add-cart"> Add to Cart</button>
               </div>
               <!--Card content-->
 
@@ -324,7 +327,7 @@
                 <h5>
                   <strong>
                     <a href="" class="dark-grey-text">Grey blouse
-                      <span class="badge badge-pill primary-color">bestseller</span>
+                      <span class="badge badge-pill primary-color">Top</span>
                     </a>
                   </strong>
                 </h5>
@@ -332,7 +335,7 @@
                 <h4 class="font-weight-bold blue-text">
                   <strong>99$</strong>
                 </h4>
-
+                <button class="btn btn-secondary add-cart"> Add to Cart</button>
               </div>
               <!--Card content-->
 
@@ -373,7 +376,7 @@
                 <h4 class="font-weight-bold blue-text">
                   <strong>219$</strong>
                 </h4>
-
+                <button class="btn btn-secondary add-cart"> Add to Cart</button>
               </div>
               <!--Card content-->
 
@@ -409,11 +412,11 @@
               <div class="card-body text-center">
                 <!--Category & Title-->
                 <a href="" class="grey-text">
-                  <h5>Shirt</h5>
+                  <h5>Sports wear</h5>
                 </a>
                 <h5>
                   <strong>
-                    <a href="" class="dark-grey-text">Denim shirt
+                    <a href="" class="dark-grey-text">Red pullover
                       <span class="badge badge-pill danger-color">NEW</span>
                     </a>
                   </strong>
@@ -422,7 +425,7 @@
                 <h4 class="font-weight-bold blue-text">
                   <strong>120$</strong>
                 </h4>
-
+                <button class="btn btn-secondary add-cart"> Add to Cart</button>
               </div>
               <!--Card content-->
 
@@ -456,14 +459,14 @@
                 </a>
                 <h5>
                   <strong>
-                    <a href="" class="dark-grey-text">Sweatshirt</a>
+                    <a href="" class="dark-grey-text">Gray pullover</a>
                   </strong>
                 </h5>
 
                 <h4 class="font-weight-bold blue-text">
                   <strong>139$</strong>
                 </h4>
-
+                <button class="btn btn-secondary add-cart"> Add to Cart</button>
               </div>
               <!--Card content-->
 
@@ -493,12 +496,12 @@
               <div class="card-body text-center">
                 <!--Category & Title-->
                 <a href="" class="grey-text">
-                  <h5>Sport wear</h5>
+                  <h5>Shirt</h5>
                 </a>
                 <h5>
                   <strong>
-                    <a href="" class="dark-grey-text">Grey blouse
-                      <span class="badge badge-pill primary-color">bestseller</span>
+                    <a href="" class="dark-grey-text">Black jeans
+                      <span class="badge badge-pill primary-color">Top</span>
                     </a>
                   </strong>
                 </h5>
@@ -506,7 +509,7 @@
                 <h4 class="font-weight-bold blue-text">
                   <strong>99$</strong>
                 </h4>
-
+                <button class="btn btn-secondary add-cart"> Add to Cart</button>
               </div>
               <!--Card content-->
 
@@ -540,14 +543,14 @@
                 </a>
                 <h5>
                   <strong>
-                    <a href="" class="dark-grey-text">Black jacket</a>
+                    <a href="" class="dark-grey-text">Blue jacket</a>
                   </strong>
                 </h5>
 
                 <h4 class="font-weight-bold blue-text">
                   <strong>219$</strong>
                 </h4>
-
+                <button class="btn btn-secondary add-cart"> Add to Cart</button>
               </div>
               <!--Card content-->
 
@@ -560,48 +563,59 @@
         </div>
         <!--Grid row-->
 
-      </section>
-      <!--Section: Products v.3-->
+        <!-- cart detail part start -->
 
-      <!--Pagination-->
-      <nav class="d-flex justify-content-center wow fadeIn" id="paginationPart">
-        <ul class="pagination pg-blue">
+        <div class="container cart-details">
+          <div class="mt-5">
+            <h1 class="mb-5 pb-3"> <i class="fas fa-shopping-cart" style="color:navy"></i>Cart Details</h1>
+            <div class="products" id="cartDetails">
+            </div>
+          </div>
+        </div>
+    </div>
 
-          <!--Arrow left-->
-          <li class="page-item disabled">
-            <a class="page-link" href="#paginationPart" aria-label="Previous">
-              <span aria-hidden="true">&laquo;</span>
-              <span class="sr-only">Previous</span>
-            </a>
-          </li>
+    </section>
+    <!--Section: Products v.3-->
 
-          <li class="page-item active">
-            <a class="page-link" href="#paginationPart">1
-              <span class="sr-only">(current)</span>
-            </a>
-          </li>
-          <li class="page-item">
-            <a class="page-link" href="#paginationPart">2</a>
-          </li>
-          <li class="page-item">
-            <a class="page-link" href="#paginationPart">3</a>
-          </li>
-          <li class="page-item">
-            <a class="page-link" href="#paginationPart">4</a>
-          </li>
-          <li class="page-item">
-            <a class="page-link" href="#paginationPart">5</a>
-          </li>
+    <!--Pagination-->
+    <nav class="d-flex justify-content-center wow fadeIn" id="paginationPart">
+      <ul class="pagination pg-blue">
 
-          <li class="page-item">
-            <a class="page-link" href="#paginationPart" aria-label="Next">
-              <span aria-hidden="true">&raquo;</span>
-              <span class="sr-only">Next</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
-      <!--Pagination-->
+        <!--Arrow left-->
+        <li class="page-item disabled">
+          <a class="page-link" href="#paginationPart" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+            <span class="sr-only">Previous</span>
+          </a>
+        </li>
+
+        <li class="page-item active">
+          <a class="page-link" href="#paginationPart">1
+            <span class="sr-only">(current)</span>
+          </a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="#paginationPart">2</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="#paginationPart">3</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="#paginationPart">4</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="#paginationPart">5</a>
+        </li>
+
+        <li class="page-item">
+          <a class="page-link" href="#paginationPart" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+            <span class="sr-only">Next</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <!--Pagination-->
 
     </div>
   </main>
@@ -656,8 +670,10 @@
   <!--/.Footer-->
 
   <!-- SCRIPTS -->
+  <script type="text/javascript" src="/js/script.js"></script>
   <!-- JQuery -->
   <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+
   <!-- Bootstrap tooltips -->
   <script type="text/javascript" src="js/popper.min.js"></script>
   <!-- Bootstrap core JavaScript -->
@@ -668,7 +684,6 @@
   <script type="text/javascript">
     // Animations initialization
     new WOW().init();
-
   </script>
 </body>
 
